@@ -9,9 +9,9 @@ part of 'movie_image.dart';
 _$_MovieImage _$$_MovieImageFromJson(Map<String, dynamic> json) =>
     _$_MovieImage(
       id: json['id'] as String,
-      url: json['url'] as String,
-      height: json['height'] as int,
-      width: json['width'] as int,
+      url: json['url'] as String?,
+      height: json['height'] as int?,
+      width: json['width'] as int?,
     );
 
 Map<String, dynamic> _$$_MovieImageToJson(_$_MovieImage instance) =>

@@ -34,6 +34,7 @@ dependencies:
     sdk: flutter
   freezed_annotation: ^1.1.0
   get_it: ^7.2.0
+  injectable: ^1.5.3
   json_annotation: ^4.4.0
 
 dev_dependencies:
@@ -42,6 +43,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^1.1.1
+  injectable_generator: ^1.5.3
   json_serializable: ^6.1.4
 
 # For information on the generic Dart part of this file, see the

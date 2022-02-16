@@ -24,11 +24,11 @@ class _$MovieTearOff {
 
   _Movie call(
       {required String id,
-      required String title,
-      required String titleType,
-      required int year,
-      required MovieImage image,
-      required int runningTimeInMinutes}) {
+      String? title,
+      String? titleType,
+      int? year,
+      MovieImage? image,
+      int? runningTimeInMinutes}) {
     return _Movie(
       id: id,
       title: title,
@@ -50,11 +50,11 @@ const $Movie = _$MovieTearOff();
 /// @nodoc
 mixin _$Movie {
   String get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get titleType => throw _privateConstructorUsedError;
-  int get year => throw _privateConstructorUsedError;
-  MovieImage get image => throw _privateConstructorUsedError;
-  int get runningTimeInMinutes => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get titleType => throw _privateConstructorUsedError;
+  int? get year => throw _privateConstructorUsedError;
+  MovieImage? get image => throw _privateConstructorUsedError;
+  int? get runningTimeInMinutes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -67,13 +67,13 @@ abstract class $MovieCopyWith<$Res> {
       _$MovieCopyWithImpl<$Res>;
   $Res call(
       {String id,
-      String title,
-      String titleType,
-      int year,
-      MovieImage image,
-      int runningTimeInMinutes});
+      String? title,
+      String? titleType,
+      int? year,
+      MovieImage? image,
+      int? runningTimeInMinutes});
 
-  $MovieImageCopyWith<$Res> get image;
+  $MovieImageCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -101,29 +101,33 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       titleType: titleType == freezed
           ? _value.titleType
           : titleType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as MovieImage,
+              as MovieImage?,
       runningTimeInMinutes: runningTimeInMinutes == freezed
           ? _value.runningTimeInMinutes
           : runningTimeInMinutes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 
   @override
-  $MovieImageCopyWith<$Res> get image {
-    return $MovieImageCopyWith<$Res>(_value.image, (value) {
+  $MovieImageCopyWith<$Res>? get image {
+    if (_value.image == null) {
+      return null;
+    }
+
+    return $MovieImageCopyWith<$Res>(_value.image!, (value) {
       return _then(_value.copyWith(image: value));
     });
   }
@@ -136,14 +140,14 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
   @override
   $Res call(
       {String id,
-      String title,
-      String titleType,
-      int year,
-      MovieImage image,
-      int runningTimeInMinutes});
+      String? title,
+      String? titleType,
+      int? year,
+      MovieImage? image,
+      int? runningTimeInMinutes});
 
   @override
-  $MovieImageCopyWith<$Res> get image;
+  $MovieImageCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -172,23 +176,23 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       titleType: titleType == freezed
           ? _value.titleType
           : titleType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       year: year == freezed
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as MovieImage,
+              as MovieImage?,
       runningTimeInMinutes: runningTimeInMinutes == freezed
           ? _value.runningTimeInMinutes
           : runningTimeInMinutes // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -198,11 +202,11 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
 class _$_Movie implements _Movie {
   const _$_Movie(
       {required this.id,
-      required this.title,
-      required this.titleType,
-      required this.year,
-      required this.image,
-      required this.runningTimeInMinutes});
+      this.title,
+      this.titleType,
+      this.year,
+      this.image,
+      this.runningTimeInMinutes});
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
       _$$_MovieFromJson(json);
@@ -210,15 +214,15 @@ class _$_Movie implements _Movie {
   @override
   final String id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String titleType;
+  final String? titleType;
   @override
-  final int year;
+  final int? year;
   @override
-  final MovieImage image;
+  final MovieImage? image;
   @override
-  final int runningTimeInMinutes;
+  final int? runningTimeInMinutes;
 
   @override
   String toString() {
@@ -263,26 +267,26 @@ class _$_Movie implements _Movie {
 abstract class _Movie implements Movie {
   const factory _Movie(
       {required String id,
-      required String title,
-      required String titleType,
-      required int year,
-      required MovieImage image,
-      required int runningTimeInMinutes}) = _$_Movie;
+      String? title,
+      String? titleType,
+      int? year,
+      MovieImage? image,
+      int? runningTimeInMinutes}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
   @override
   String get id;
   @override
-  String get title;
+  String? get title;
   @override
-  String get titleType;
+  String? get titleType;
   @override
-  int get year;
+  int? get year;
   @override
-  MovieImage get image;
+  MovieImage? get image;
   @override
-  int get runningTimeInMinutes;
+  int? get runningTimeInMinutes;
   @override
   @JsonKey(ignore: true)
   _$MovieCopyWith<_Movie> get copyWith => throw _privateConstructorUsedError;

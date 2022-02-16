@@ -7,9 +7,9 @@ part 'movie_image.g.dart';
 class MovieImage with _$MovieImage {
   const factory MovieImage({
     required String id,
-    required String url,
-    required int height,
-    required int width,
+    String? url,
+    int? height,
+    int? width,
   }) = _MovieImage;
 
   factory MovieImage.fromJson(Map<String, dynamic> json) =>

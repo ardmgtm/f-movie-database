@@ -22,11 +22,7 @@ MovieImage _$MovieImageFromJson(Map<String, dynamic> json) {
 class _$MovieImageTearOff {
   const _$MovieImageTearOff();
 
-  _MovieImage call(
-      {required String id,
-      required String url,
-      required int height,
-      required int width}) {
+  _MovieImage call({required String id, String? url, int? height, int? width}) {
     return _MovieImage(
       id: id,
       url: url,
@@ -46,9 +42,9 @@ const $MovieImage = _$MovieImageTearOff();
 /// @nodoc
 mixin _$MovieImage {
   String get id => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
-  int get height => throw _privateConstructorUsedError;
-  int get width => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
+  int? get height => throw _privateConstructorUsedError;
+  int? get width => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,7 +57,7 @@ abstract class $MovieImageCopyWith<$Res> {
   factory $MovieImageCopyWith(
           MovieImage value, $Res Function(MovieImage) then) =
       _$MovieImageCopyWithImpl<$Res>;
-  $Res call({String id, String url, int height, int width});
+  $Res call({String id, String? url, int? height, int? width});
 }
 
 /// @nodoc
@@ -87,15 +83,15 @@ class _$MovieImageCopyWithImpl<$Res> implements $MovieImageCopyWith<$Res> {
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       width: width == freezed
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -106,7 +102,7 @@ abstract class _$MovieImageCopyWith<$Res> implements $MovieImageCopyWith<$Res> {
           _MovieImage value, $Res Function(_MovieImage) then) =
       __$MovieImageCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String url, int height, int width});
+  $Res call({String id, String? url, int? height, int? width});
 }
 
 /// @nodoc
@@ -134,15 +130,15 @@ class __$MovieImageCopyWithImpl<$Res> extends _$MovieImageCopyWithImpl<$Res>
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       width: width == freezed
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -150,11 +146,7 @@ class __$MovieImageCopyWithImpl<$Res> extends _$MovieImageCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MovieImage implements _MovieImage {
-  const _$_MovieImage(
-      {required this.id,
-      required this.url,
-      required this.height,
-      required this.width});
+  const _$_MovieImage({required this.id, this.url, this.height, this.width});
 
   factory _$_MovieImage.fromJson(Map<String, dynamic> json) =>
       _$$_MovieImageFromJson(json);
@@ -162,11 +154,11 @@ class _$_MovieImage implements _MovieImage {
   @override
   final String id;
   @override
-  final String url;
+  final String? url;
   @override
-  final int height;
+  final int? height;
   @override
-  final int width;
+  final int? width;
 
   @override
   String toString() {
@@ -206,9 +198,9 @@ class _$_MovieImage implements _MovieImage {
 abstract class _MovieImage implements MovieImage {
   const factory _MovieImage(
       {required String id,
-      required String url,
-      required int height,
-      required int width}) = _$_MovieImage;
+      String? url,
+      int? height,
+      int? width}) = _$_MovieImage;
 
   factory _MovieImage.fromJson(Map<String, dynamic> json) =
       _$_MovieImage.fromJson;
@@ -216,11 +208,11 @@ abstract class _MovieImage implements MovieImage {
   @override
   String get id;
   @override
-  String get url;
+  String? get url;
   @override
-  int get height;
+  int? get height;
   @override
-  int get width;
+  int? get width;
   @override
   @JsonKey(ignore: true)
   _$MovieImageCopyWith<_MovieImage> get copyWith =>

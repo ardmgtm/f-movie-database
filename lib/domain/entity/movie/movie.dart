@@ -9,11 +9,11 @@ part 'movie.g.dart';
 class Movie with _$Movie {
   const factory Movie({
     required String id,
-    required String title,
-    required String titleType,
-    required int year,
-    required MovieImage image,
-    required int runningTimeInMinutes,
+    String? title,
+    String? titleType,
+    int? year,
+    MovieImage? image,
+    int? runningTimeInMinutes,
   }) = _Movie;
 
   factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
