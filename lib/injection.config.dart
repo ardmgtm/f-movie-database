@@ -7,6 +7,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+import 'application/movie/movie_bloc.dart' as _i6;
 import 'domain/repository/movie_repository.dart' as _i4;
 import 'infrastructure/data_source/movie_api_data_source.dart' as _i3;
 import 'infrastructure/repository/movie_repository_impl.dart'
@@ -20,5 +21,6 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i3.MovieAPIDataSource>(() => _i3.MovieAPIDataSource());
   gh.lazySingleton<_i4.MovieRepository>(
       () => _i5.MovieRepositoryImpl(get<_i3.MovieAPIDataSource>()));
+  gh.factory<_i6.MovieBloc>(() => _i6.MovieBloc(get<_i4.MovieRepository>()));
   return get;
 }
