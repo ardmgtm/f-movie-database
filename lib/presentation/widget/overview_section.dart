@@ -87,7 +87,12 @@ class MovieCard extends StatelessWidget {
           ),
         )),
         const SizedBox(height: 4),
-        Text(movie.title ?? '', overflow: TextOverflow.ellipsis, maxLines: 1),
+        Text(
+          movie.title ?? '',
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         Text(movie.year.toString()),
       ],
     );

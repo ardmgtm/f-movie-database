@@ -15,6 +15,9 @@ _$_Movie _$$_MovieFromJson(Map<String, dynamic> json) => _$_Movie(
           ? null
           : MovieImage.fromJson(json['image'] as Map<String, dynamic>),
       runningTimeInMinutes: json['runningTimeInMinutes'] as int?,
+      detail: json['detail'] == null
+          ? null
+          : MovieDetail.fromJson(json['detail'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_MovieToJson(_$_Movie instance) => <String, dynamic>{
@@ -24,4 +27,5 @@ Map<String, dynamic> _$$_MovieToJson(_$_Movie instance) => <String, dynamic>{
       'year': instance.year,
       'image': instance.image,
       'runningTimeInMinutes': instance.runningTimeInMinutes,
+      'detail': instance.detail,
     };

@@ -1,3 +1,4 @@
+import 'package:flutter_movie_database/domain/entity/movie_detail/movie_detail.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../movie_image/movie_image.dart';
@@ -14,6 +15,7 @@ class Movie with _$Movie {
     int? year,
     MovieImage? image,
     int? runningTimeInMinutes,
+    MovieDetail? detail,
   }) = _Movie;
 
   factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);

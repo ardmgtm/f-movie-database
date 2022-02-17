@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_movie_database/domain/entity/movie_detail/movie_detail.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entity/movie/movie.dart';
@@ -54,6 +55,16 @@ class MovieAPIDataSource {
       options: Options(responseType: ResponseType.json),
     );
     Movie data = Movie.fromJson(res.data);
+    return data;
+  }
+
+  Future<MovieDetail> getMovieDetail(String id) async {
+    var res = await _dio.get(
+      '/title/get-overview-details',
+      queryParameters: {'tconst': id},
+      options: Options(responseType: ResponseType.json),
+    );
+    MovieDetail data = MovieDetail.fromJson(res.data);
     return data;
   }
 }
