@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_database/presentation/core/routes.dart';
 
 import '../../domain/entity/movie/movie.dart';
 
@@ -74,27 +75,33 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-            child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: CachedNetworkImageProvider(movie.image?.url ?? ''),
-              fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, MovieDbRoutes.movieDetail,
+            arguments: movie.id);
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+              child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: CachedNetworkImageProvider(movie.image?.url ?? ''),
+                fit: BoxFit.cover,
+              ),
             ),
+          )),
+          const SizedBox(height: 4),
+          Text(
+            movie.title ?? '',
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-        )),
-        const SizedBox(height: 4),
-        Text(
-          movie.title ?? '',
-          overflow: TextOverflow.ellipsis,
-          maxLines: 1,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        Text(movie.year.toString()),
-      ],
+          Text(movie.year.toString()),
+        ],
+      ),
     );
   }
 }

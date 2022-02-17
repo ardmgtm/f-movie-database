@@ -43,6 +43,7 @@ class HomePage extends StatelessWidget {
                       OverViewSection(
                         sectionTitle: 'Popular Movie',
                         movies: data.movies,
+                        viewAll: () {},
                       ),
                     ],
                   ),

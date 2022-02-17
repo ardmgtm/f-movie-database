@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:flutter_movie_database/domain/entity/movie_detail/movie_detail.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entity/movie/movie.dart';
@@ -18,8 +17,8 @@ class MovieRepositoryImpl implements MovieRepository {
   @override
   Future<Either<Movie, MovieFailure>> getMovieDetail(String id) async {
     try {
-      Movie movie = await dataSource.getMovie(id);
-      MovieDetail detail = await dataSource.getMovieDetail(id);
+      var movie = await dataSource.getMovie(id);
+      var detail = await dataSource.getMovieDetail(id);
       return Left(movie.copyWith(detail: detail));
     } on SocketException {
       return const Right(MovieFailure.serverFailure());

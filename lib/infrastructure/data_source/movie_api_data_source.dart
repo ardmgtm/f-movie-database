@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_movie_database/domain/entity/movie_detail/movie_detail.dart';
+import 'package:flutter_movie_database/infrastructure/core/movie_util.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entity/movie/movie.dart';
@@ -49,9 +50,10 @@ class MovieAPIDataSource {
   }
 
   Future<Movie> getMovie(String id) async {
+    String newId = normalizeId(id);
     var res = await _dio.get(
       '/title/get-details',
-      queryParameters: {'tconst': id},
+      queryParameters: {'tconst': newId},
       options: Options(responseType: ResponseType.json),
     );
     Movie data = Movie.fromJson(res.data);
@@ -59,9 +61,10 @@ class MovieAPIDataSource {
   }
 
   Future<MovieDetail> getMovieDetail(String id) async {
+    String newId = normalizeId(id);
     var res = await _dio.get(
       '/title/get-overview-details',
-      queryParameters: {'tconst': id},
+      queryParameters: {'tconst': newId},
       options: Options(responseType: ResponseType.json),
     );
     MovieDetail data = MovieDetail.fromJson(res.data);
