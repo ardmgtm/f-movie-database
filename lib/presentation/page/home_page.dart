@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_database/presentation/core/routes.dart';
 
 import '../../application/movie/movie_bloc.dart';
 import '../../injection.dart';
 import '../widget/widget.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,9 @@ class HomePage extends StatelessWidget {
           title: const Text('Movie Database'),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, MovieDbRoutes.search);
+              },
               icon: const Icon(Icons.search),
             )
           ],
@@ -32,7 +35,13 @@ class HomePage extends StatelessWidget {
         body: BlocBuilder<MovieBloc, MovieState>(
           builder: (context, state) {
             return state.maybeMap(
-              orElse: () => const Center(child: Icon(Icons.error_outline)),
+              orElse: () => ErrorView(
+                onRefresh: () {
+                  context.read<MovieBloc>().add(
+                        const MovieEvent.getPopularMovies(),
+                      );
+                },
+              ),
               loading: (_) => const Center(child: CircularProgressIndicator()),
               successLoadMovieList: (data) => Center(
                 child: Container(

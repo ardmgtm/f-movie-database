@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_database/presentation/core/util.dart';
+import 'package:flutter_movie_database/presentation/widget/widget.dart';
 
 import '../../application/movie/movie_bloc.dart';
 import '../../injection.dart';
+import '../core/util.dart';
 
 class MovieDetailPage extends StatelessWidget {
   final String id;
@@ -20,7 +21,11 @@ class MovieDetailPage extends StatelessWidget {
         body: BlocBuilder<MovieBloc, MovieState>(
           builder: (context, state) {
             return state.maybeMap(
-              orElse: () => const Center(child: Icon(Icons.error_outline)),
+              orElse: () => ErrorView(
+                onRefresh: () {
+                  context.read<MovieBloc>().add(MovieEvent.getMovie(id));
+                },
+              ),
               loading: (_) => const Center(
                 child: CircularProgressIndicator(),
               ),
@@ -37,29 +42,51 @@ class MovieDetailPage extends StatelessWidget {
                       collapseMode: CollapseMode.pin,
                       centerTitle: true,
                       title: Text(data.movie.title.toString()),
-                      background: ShaderMask(
-                        shaderCallback: (Rect bounds) => const LinearGradient(
-                          colors: [
-                            Colors.black,
-                            Colors.transparent,
-                          ],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        ).createShader(
-                          Rect.fromLTRB(
-                            0,
-                            0,
-                            MediaQuery.of(context).size.width,
-                            250,
+                      background: Stack(
+                        alignment: AlignmentDirectional.center,
+                        children: [
+                          ShaderMask(
+                            shaderCallback: (Rect bounds) =>
+                                const LinearGradient(
+                              colors: [
+                                Colors.black,
+                                Colors.transparent,
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ).createShader(
+                              Rect.fromLTRB(
+                                0,
+                                0,
+                                MediaQuery.of(context).size.width,
+                                300,
+                              ),
+                            ),
+                            blendMode: BlendMode.dstIn,
+                            child: Image(
+                              image: CachedNetworkImageProvider(
+                                data.movie.image!.url.toString(),
+                              ),
+                              height: 300,
+                              width: MediaQuery.of(context).size.width,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        blendMode: BlendMode.dstIn,
-                        child: Image(
-                          image: CachedNetworkImageProvider(
-                            data.movie.image!.url.toString(),
-                          ),
-                          fit: BoxFit.cover,
-                        ),
+                          Container(
+                            height: 165,
+                            width: 110,
+                            color: Colors.white,
+                            child: Padding(
+                              padding: const EdgeInsets.all(4),
+                              child: Image(
+                                image: CachedNetworkImageProvider(
+                                  data.movie.image!.url.toString(),
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),

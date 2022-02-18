@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_database/presentation/page/search_page.dart';
 
 import '../page/home_page.dart';
 import '../page/movie_detail_page.dart';
 
 class MovieDbRoutes {
   static const home = '/';
+  static const search = '/search';
   static const movieDetail = '/movie/:id';
 
   static Widget makeRoute({
@@ -25,7 +27,9 @@ class MovieDbRoutes {
   }) {
     switch (routeName) {
       case home:
-        return const HomePage();
+        return HomePage();
+      case search:
+        return const SearchPage();
       case movieDetail:
         return MovieDetailPage(id: arguments as String);
       default:
