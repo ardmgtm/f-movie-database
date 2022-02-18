@@ -70,4 +70,21 @@ class MovieAPIDataSource {
     MovieDetail data = MovieDetail.fromJson(res.data);
     return data;
   }
+
+  Future<List<Movie>> searchMovie(String query) async {
+    var res = await _dio.get(
+      '/title/find',
+      queryParameters: {'q': query},
+    );
+    List result = res.data['results'] ?? [];
+    List<Movie> movies = [];
+    for (var json in result) {
+      if (validateJson(json)) {
+        movies.add(Movie.fromJson(json));
+      } else {
+        continue;
+      }
+    }
+    return movies;
+  }
 }

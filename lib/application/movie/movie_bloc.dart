@@ -31,5 +31,16 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
         (movieFailure) => const MovieState.error(),
       ));
     });
+
+    on<_SearchMovie>((event, emit) async {
+      emit(const MovieState.loading());
+      var result = await repository.searchMovie(event.query);
+      emit(
+        result.fold(
+          (movies) => MovieState.successLoadMovieList(movies),
+          (movieFailure) => const MovieState.error(),
+        ),
+      );
+    });
   }
 }

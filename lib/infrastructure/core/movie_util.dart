@@ -7,3 +7,11 @@ String normalizeId(String id) {
     return id;
   }
 }
+
+bool validateJson(Map<String, dynamic> json) {
+  try {
+    return json['titleType'] == 'movie' || json['titleType'] == 'tvSeries';
+  } catch (e) {
+    return false;
+  }
+}

@@ -6,4 +6,5 @@ import '../failure/movie_failure.dart';
 abstract class MovieRepository {
   Future<Either<List<Movie>, MovieFailure>> getPopularMovies();
   Future<Either<Movie, MovieFailure>> getMovieDetail(String id);
+  Future<Either<List<Movie>, MovieFailure>> searchMovie(String query);
 }

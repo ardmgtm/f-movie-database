@@ -31,6 +31,12 @@ class _$MovieEventTearOff {
       id,
     );
   }
+
+  _SearchMovie searchMovie(String query) {
+    return _SearchMovie(
+      query,
+    );
+  }
 }
 
 /// @nodoc
@@ -43,6 +49,7 @@ mixin _$MovieEvent {
     required TResult Function() started,
     required TResult Function() getPopularMovies,
     required TResult Function(String id) getMovie,
+    required TResult Function(String query) searchMovie,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +57,7 @@ mixin _$MovieEvent {
     TResult Function()? started,
     TResult Function()? getPopularMovies,
     TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +65,7 @@ mixin _$MovieEvent {
     TResult Function()? started,
     TResult Function()? getPopularMovies,
     TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +74,7 @@ mixin _$MovieEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_GetPopularMovies value) getPopularMovies,
     required TResult Function(_GetMovie value) getMovie,
+    required TResult Function(_SearchMovie value) searchMovie,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +82,7 @@ mixin _$MovieEvent {
     TResult Function(_Started value)? started,
     TResult Function(_GetPopularMovies value)? getPopularMovies,
     TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +90,7 @@ mixin _$MovieEvent {
     TResult Function(_Started value)? started,
     TResult Function(_GetPopularMovies value)? getPopularMovies,
     TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +153,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function() getPopularMovies,
     required TResult Function(String id) getMovie,
+    required TResult Function(String query) searchMovie,
   }) {
     return started();
   }
@@ -151,6 +164,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function()? getPopularMovies,
     TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
   }) {
     return started?.call();
   }
@@ -161,6 +175,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function()? getPopularMovies,
     TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -175,6 +190,7 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_GetPopularMovies value) getPopularMovies,
     required TResult Function(_GetMovie value) getMovie,
+    required TResult Function(_SearchMovie value) searchMovie,
   }) {
     return started(this);
   }
@@ -185,6 +201,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_GetPopularMovies value)? getPopularMovies,
     TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
   }) {
     return started?.call(this);
   }
@@ -195,6 +212,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_GetPopularMovies value)? getPopularMovies,
     TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -252,6 +270,7 @@ class _$_GetPopularMovies implements _GetPopularMovies {
     required TResult Function() started,
     required TResult Function() getPopularMovies,
     required TResult Function(String id) getMovie,
+    required TResult Function(String query) searchMovie,
   }) {
     return getPopularMovies();
   }
@@ -262,6 +281,7 @@ class _$_GetPopularMovies implements _GetPopularMovies {
     TResult Function()? started,
     TResult Function()? getPopularMovies,
     TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
   }) {
     return getPopularMovies?.call();
   }
@@ -272,6 +292,7 @@ class _$_GetPopularMovies implements _GetPopularMovies {
     TResult Function()? started,
     TResult Function()? getPopularMovies,
     TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
     required TResult orElse(),
   }) {
     if (getPopularMovies != null) {
@@ -286,6 +307,7 @@ class _$_GetPopularMovies implements _GetPopularMovies {
     required TResult Function(_Started value) started,
     required TResult Function(_GetPopularMovies value) getPopularMovies,
     required TResult Function(_GetMovie value) getMovie,
+    required TResult Function(_SearchMovie value) searchMovie,
   }) {
     return getPopularMovies(this);
   }
@@ -296,6 +318,7 @@ class _$_GetPopularMovies implements _GetPopularMovies {
     TResult Function(_Started value)? started,
     TResult Function(_GetPopularMovies value)? getPopularMovies,
     TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
   }) {
     return getPopularMovies?.call(this);
   }
@@ -306,6 +329,7 @@ class _$_GetPopularMovies implements _GetPopularMovies {
     TResult Function(_Started value)? started,
     TResult Function(_GetPopularMovies value)? getPopularMovies,
     TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
     required TResult orElse(),
   }) {
     if (getPopularMovies != null) {
@@ -384,6 +408,7 @@ class _$_GetMovie implements _GetMovie {
     required TResult Function() started,
     required TResult Function() getPopularMovies,
     required TResult Function(String id) getMovie,
+    required TResult Function(String query) searchMovie,
   }) {
     return getMovie(id);
   }
@@ -394,6 +419,7 @@ class _$_GetMovie implements _GetMovie {
     TResult Function()? started,
     TResult Function()? getPopularMovies,
     TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
   }) {
     return getMovie?.call(id);
   }
@@ -404,6 +430,7 @@ class _$_GetMovie implements _GetMovie {
     TResult Function()? started,
     TResult Function()? getPopularMovies,
     TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
     required TResult orElse(),
   }) {
     if (getMovie != null) {
@@ -418,6 +445,7 @@ class _$_GetMovie implements _GetMovie {
     required TResult Function(_Started value) started,
     required TResult Function(_GetPopularMovies value) getPopularMovies,
     required TResult Function(_GetMovie value) getMovie,
+    required TResult Function(_SearchMovie value) searchMovie,
   }) {
     return getMovie(this);
   }
@@ -428,6 +456,7 @@ class _$_GetMovie implements _GetMovie {
     TResult Function(_Started value)? started,
     TResult Function(_GetPopularMovies value)? getPopularMovies,
     TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
   }) {
     return getMovie?.call(this);
   }
@@ -438,6 +467,7 @@ class _$_GetMovie implements _GetMovie {
     TResult Function(_Started value)? started,
     TResult Function(_GetPopularMovies value)? getPopularMovies,
     TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
     required TResult orElse(),
   }) {
     if (getMovie != null) {
@@ -453,6 +483,151 @@ abstract class _GetMovie implements MovieEvent {
   String get id;
   @JsonKey(ignore: true)
   _$GetMovieCopyWith<_GetMovie> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SearchMovieCopyWith<$Res> {
+  factory _$SearchMovieCopyWith(
+          _SearchMovie value, $Res Function(_SearchMovie) then) =
+      __$SearchMovieCopyWithImpl<$Res>;
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$SearchMovieCopyWithImpl<$Res> extends _$MovieEventCopyWithImpl<$Res>
+    implements _$SearchMovieCopyWith<$Res> {
+  __$SearchMovieCopyWithImpl(
+      _SearchMovie _value, $Res Function(_SearchMovie) _then)
+      : super(_value, (v) => _then(v as _SearchMovie));
+
+  @override
+  _SearchMovie get _value => super._value as _SearchMovie;
+
+  @override
+  $Res call({
+    Object? query = freezed,
+  }) {
+    return _then(_SearchMovie(
+      query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SearchMovie implements _SearchMovie {
+  const _$_SearchMovie(this.query);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'MovieEvent.searchMovie(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SearchMovie &&
+            const DeepCollectionEquality().equals(other.query, query));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(query));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SearchMovieCopyWith<_SearchMovie> get copyWith =>
+      __$SearchMovieCopyWithImpl<_SearchMovie>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getPopularMovies,
+    required TResult Function(String id) getMovie,
+    required TResult Function(String query) searchMovie,
+  }) {
+    return searchMovie(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getPopularMovies,
+    TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
+  }) {
+    return searchMovie?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getPopularMovies,
+    TResult Function(String id)? getMovie,
+    TResult Function(String query)? searchMovie,
+    required TResult orElse(),
+  }) {
+    if (searchMovie != null) {
+      return searchMovie(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_GetPopularMovies value) getPopularMovies,
+    required TResult Function(_GetMovie value) getMovie,
+    required TResult Function(_SearchMovie value) searchMovie,
+  }) {
+    return searchMovie(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_GetPopularMovies value)? getPopularMovies,
+    TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
+  }) {
+    return searchMovie?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_GetPopularMovies value)? getPopularMovies,
+    TResult Function(_GetMovie value)? getMovie,
+    TResult Function(_SearchMovie value)? searchMovie,
+    required TResult orElse(),
+  }) {
+    if (searchMovie != null) {
+      return searchMovie(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchMovie implements MovieEvent {
+  const factory _SearchMovie(String query) = _$_SearchMovie;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$SearchMovieCopyWith<_SearchMovie> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

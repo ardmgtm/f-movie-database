@@ -26,4 +26,10 @@ void main() {
     var result = await dataSource.getMovieDetail('tt7740496');
     expect(result, const TypeMatcher<MovieDetail>());
   });
+
+  test('Test API searchMovie', () async {
+    var result = await dataSource.searchMovie('qqqq');
+    debugPrint(result.toString());
+    expect(result, const TypeMatcher<List<Movie>>());
+  });
 }

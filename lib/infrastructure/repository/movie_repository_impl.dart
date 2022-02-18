@@ -39,4 +39,16 @@ class MovieRepositoryImpl implements MovieRepository {
       return const Right(MovieFailure.unexpected());
     }
   }
+
+  @override
+  Future<Either<List<Movie>, MovieFailure>> searchMovie(String query) async {
+    try {
+      List<Movie> movies = await dataSource.searchMovie(query);
+      return Left(movies);
+    } on SocketException {
+      return const Right(MovieFailure.serverFailure());
+    } catch (e) {
+      return const Right(MovieFailure.unexpected());
+    }
+  }
 }

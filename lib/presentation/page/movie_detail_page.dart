@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_database/presentation/widget/widget.dart';
 
 import '../../application/movie/movie_bloc.dart';
 import '../../injection.dart';
 import '../core/util.dart';
+import '../widget/widget.dart';
 
 class MovieDetailPage extends StatelessWidget {
   final String id;
@@ -41,7 +41,10 @@ class MovieDetailPage extends StatelessWidget {
                       expandedTitleScale: 1.5,
                       collapseMode: CollapseMode.pin,
                       centerTitle: true,
-                      title: Text(data.movie.title.toString()),
+                      title: Text(
+                        data.movie.title.toString(),
+                        textAlign: TextAlign.center,
+                      ),
                       background: Stack(
                         alignment: AlignmentDirectional.center,
                         children: [

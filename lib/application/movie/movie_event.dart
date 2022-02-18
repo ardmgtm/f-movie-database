@@ -5,4 +5,5 @@ class MovieEvent with _$MovieEvent {
   const factory MovieEvent.started() = _Started;
   const factory MovieEvent.getPopularMovies() = _GetPopularMovies;
   const factory MovieEvent.getMovie(String id) = _GetMovie;
+  const factory MovieEvent.searchMovie(String query) = _SearchMovie;
 }
